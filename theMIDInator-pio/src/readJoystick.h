@@ -37,8 +37,8 @@ void readJoystick()
   int diff = 2;
 
   // READ LEFT-RIGHT //
-  if (digitalRead(Xswitch) == 0)
-  { // execute only if X-switch is turned on
+  if (digitalRead(Xswitch) == 0) // execute only if X-switch is turned on
+  {
 
     joyXval = analogRead(joyX);
     int joyXvalDiff = joyXval - lastJoyXval;

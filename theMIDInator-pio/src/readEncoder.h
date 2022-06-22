@@ -15,8 +15,8 @@ void readEncoder()
   long newPos1 = myEnc1.read(); // reads both encoders
   long newPos2 = myEnc2.read();
 
-  if (newPos1 > position1)
-  { // increases encoder #1
+  if (newPos1 > position1) // increases encoder #1
+  {
     position1 = newPos1;
     encVals[cVal]++;
     encVals[cVal] = constrain(encVals[cVal], 0, 127);
@@ -24,8 +24,8 @@ void readEncoder()
     MIDImessage(178, cVal, encVals[cVal]);
   }
 
-  if (newPos1 < position1)
-  { // decreases encoder #1
+  if (newPos1 < position1) // decreases encoder #1
+  {
     position1 = newPos1;
     encVals[cVal]--;
     encVals[cVal] = constrain(encVals[cVal], 0, 127);
@@ -33,8 +33,8 @@ void readEncoder()
     MIDImessage(178, cVal, encVals[cVal]);
   }
 
-  if (newPos2 > position2)
-  { // increases encoder #2
+  if (newPos2 > position2) // increases encoder #2
+  {
     position2 = newPos2;
     encVals[cVal + 1]++;
     encVals[cVal + 1] = constrain(encVals[cVal + 1], 0, 127);
@@ -42,8 +42,8 @@ void readEncoder()
     MIDImessage(178, cVal + 1, encVals[cVal + 1]);
   }
 
-  if (newPos2 < position2)
-  { // decreases encoder #2
+  if (newPos2 < position2) // decreases encoder #2
+  {
     position2 = newPos2;
     encVals[cVal + 1]--;
     encVals[cVal + 1] = constrain(encVals[cVal + 1], 0, 127);

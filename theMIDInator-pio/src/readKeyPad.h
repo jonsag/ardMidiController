@@ -20,25 +20,29 @@ void readKeyPad()
 
   transposeRight = digitalRead(transposePin1);
 
-  if (oldTransposeRight != transposeRight && transposeRight == 0)
-  { // detect switch change, and only do this once regardless how long it's held down
-    if (millis() - transposeTimer > 1000)
-    { // debounce so you can only do this once a second
-      if (transpose < 48)
-        transpose = transpose + 12; // only change transpose value if it's smaller than 48
-      transposeTimer = millis();    // reset debounce timer
+  if (oldTransposeRight != transposeRight && transposeRight == 0) // detect switch change, and only do this once regardless how long it's held down
+  {
+    if (millis() - transposeTimer > 1000) // debounce so you can only do this once a second
+    {
+      if (transpose < 48) // only change transpose value if it's smaller than 48
+      {
+        transpose = transpose + 12;
+      }
+      transposeTimer = millis(); // reset debounce timer
     }
   }
   oldTransposeRight = transposeRight;
 
   transposeLeft = digitalRead(transposePin2);
 
-  if (oldTransposeLeft != transposeLeft && transposeLeft == 0)
-  { // same as above but to decrease the transpose value
+  if (oldTransposeLeft != transposeLeft && transposeLeft == 0) // same as above but to decrease the transpose value
+  {
     if (millis() - transposeTimer > 1000)
     {
-      if (transpose > -60)
-        transpose = transpose - 12; // only change transpose value if it's bigger than -60
+      if (transpose > -60) // only change transpose value if it's bigger than -60
+      {
+        transpose = transpose - 12;
+      }
       transposeTimer = millis();
     }
   }

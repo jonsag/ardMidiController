@@ -1,11 +1,10 @@
 
 // KEYPAD //
-
 #include <Keypad.h>
 
 #define ROWS 4 // four rows
-#define COLS 3
-// three columns
+#define COLS 3 // three columns
+
 char keys[ROWS][COLS] = { // keypad keys, 1-9, 0, S for star (asterisk) and P for pound (square)
     {'1', '2', '3'},
     {'4', '5', '6'},
@@ -14,21 +13,6 @@ char keys[ROWS][COLS] = { // keypad keys, 1-9, 0, S for star (asterisk) and P fo
 
 byte rowPins[ROWS] = {43, 41, 39, 35}; // keypad row pinouts
 byte colPins[COLS] = {33, 31, 37};     // keypad column pinouts
-
-/*
-From example:
-Keypad Pin 3    Arduino digital 2
-Keypad Pin 1    Arduino digital 3
-Keypad Pin 5    Arduino digital 4
-
-Keypad Pin 2    Arduino digital 5
-Keypad Pin 7    Arduino digital 6
-Keypad Pin 4    Arduino digital 7
-Keypad Pin 4    Arduino digital 8
-
-byte rowPins[ROWS] = {5, 6, 7, 8}; //connect to the row pinouts of the keypad
-byte colPins[COLS] = {2, 3, 4}; //connect to the column pinouts of the keypad
-*/
 
 Keypad kpd = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
@@ -44,19 +28,18 @@ int oldTransposeLeft = 0;
 int oldTransposeRight = 0;
 unsigned long transposeTimer = 0; // for debouncing
 
-// ROTARY ENCODER //
-
+// ROTARY ENCODERS //
 #define ENCODER_DO_NOT_USE_INTERRUPTS
 #include <Encoder.h>
 
 Encoder myEnc1(26, 27);
 Encoder myEnc2(24, 25);
+
 long position1 = -999;
 long position2 = -999;
 int encVals[12] = {64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64}; // set initial value of encoder to mid range of 0-127
 
 // ROTARY SWITCH //
-
 #define rotSwitch1 30 // rotary switch pins
 #define rotSwitch2 32
 #define rotSwitch3 34
@@ -67,7 +50,6 @@ int encVals[12] = {64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64}; // set initi
 int cVal = 1;
 
 // POTENTIOMETERS //
-
 #define pot1 A0 // potentiometer pins
 #define pot2 A1
 #define pot3 A2
@@ -84,7 +66,6 @@ int lastPotVal3 = 0;
 int lastSlidePotVal = 0;
 
 // JOYSTICK //
-
 #define joyX A5 // joystick pins
 #define joyY A4
 

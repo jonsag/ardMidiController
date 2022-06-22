@@ -13,8 +13,8 @@
 void readRotSwitch()
 { // read position of rotary switch and assign it to cVal
 
-  if (digitalRead(rotSwitch1) == LOW)
-  { // inverted logic because of INPUT_PULLUP
+  if (digitalRead(rotSwitch1) == LOW) // inverted logic because of INPUT_PULLUP
+  {
     cVal = 4;
   }
   else if (digitalRead(rotSwitch2) == LOW)
